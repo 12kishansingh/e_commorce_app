@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: Drawer(
         backgroundColor: Colors.white,
+
         child: Column(
           children: [
             DrawerHeader(
@@ -59,7 +60,9 @@ class _HomePageState extends State<HomePage> {
                 'lib/images/pic1.png',
               ),
             ),
-            Padding(
+            Column(
+              children: [
+                Padding(
               padding: const EdgeInsets.only(
                 left: 20,
               ),
@@ -76,6 +79,8 @@ class _HomePageState extends State<HomePage> {
                 leading: Icon(Icons.info),
                 title: Text('About'),
               ),
+            ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.only(
