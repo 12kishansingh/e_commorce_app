@@ -1,3 +1,4 @@
+import 'package:e_commorce_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class Intropage extends StatelessWidget {
@@ -14,9 +15,9 @@ class Intropage extends StatelessWidget {
             vertical: 25,
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //logo
-
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Image.asset(
@@ -46,16 +47,24 @@ class Intropage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               //start now button
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(12),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
                 ),
-                padding: EdgeInsets.all(25),
-                child: Center(
-                  child: const Text(
-                    'Shop now',
-                    style: TextStyle(color: Colors.white),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[900],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: EdgeInsets.all(25),
+                  child: Center(
+                    child: const Text(
+                      'Shop now',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
