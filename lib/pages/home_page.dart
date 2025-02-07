@@ -20,10 +20,10 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = index;
     });
-
   }
+
   // pages to display
-  final List<Widget>_pages=[
+  final List<Widget> _pages = [
     // shop page
     const ShopPage(),
     // cart page
@@ -37,7 +37,59 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
-      body: _pages[_selectedIndex],// give pages to body
+      appBar: AppBar(
+        leading: Builder(builder: (context) {
+          return IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+          );
+        }),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: Column(
+          children: [
+            DrawerHeader(
+              child: Image.asset(
+                'lib/images/pic1.png',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+              ),
+              child: ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+              ),
+              child: ListTile(
+                leading: Icon(Icons.info),
+                title: Text('About'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+              ),
+              child: ListTile(
+                leading: Icon(Icons.logout),
+                title: Text('Logout'),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: _pages[_selectedIndex], // give pages to body
     );
   }
 }
