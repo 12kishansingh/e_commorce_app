@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   vm_service: ^14.3.0
   google_nav_bar: ^5.0.7
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,7 @@ flutter:
     - lib/images/pic1.png
     - lib/images/pic2.png
     - lib/images/airjordan.png
+    - lib/images/freak.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

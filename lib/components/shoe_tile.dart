@@ -12,20 +12,79 @@ class ShoeTile extends StatelessWidget {
       margin: EdgeInsets.only(left: 25.0),
       width: 280,
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: Colors.grey[400],
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Column(children: [ 
-        // shoe picture
-        Image.asset(shoe.imagePath)
-        //description 
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // shoe picture
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(shoe.imagePath),
+          ),
+          //description
+          Text(
+            shoe.description,
+            style: TextStyle(color: Colors.grey[900]),
+          ),
 
-        // price+details
+          // price+details
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 25.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //shoe name n price
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //name
+                    Text(
+                      shoe.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    //price
+                    Text(
+                      '\Rs ' + shoe.price,
+                      style: TextStyle(
+                        color: Colors.grey[800],
+                      ),
+                    ),
+                  ],
+                ),
 
-        //button to add to cart
+                // plus button
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: const BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      bottomRight: Radius.circular(12),
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          )
 
-
-      ],),
+          //button to add to cart
+        ],
+      ),
     );
   }
 }
